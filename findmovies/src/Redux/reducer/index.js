@@ -27,7 +27,7 @@ const rootReducer = (state = initialState, action) => {
             }
         default:
             return{
-                ...popular
+                ...state
             }
     }
 }
