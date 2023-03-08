@@ -31,6 +31,7 @@ export const getMoviesDetail = (id) => async(dispatch) =>{
 export const getPopular = () => async(dispatch) => {
     try {
         const pop = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=c3caae88c341b6c157596bb8d710a2de')
+       
         return dispatch({
             type: GET_POPULAR,
             payload: pop.data,

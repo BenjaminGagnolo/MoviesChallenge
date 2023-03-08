@@ -12,7 +12,7 @@ function App() {
     <ChakraProvider>
       <Routes>
         <Route exact path='/' element={<LandingPage />} />
-        <Route exact path='/home' component={<Home />} />
+        <Route exact path='/home' element={<Home />} />
       </Routes>
     </ChakraProvider>
   );

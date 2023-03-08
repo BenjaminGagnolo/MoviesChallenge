@@ -23,7 +23,7 @@ const rootReducer = (state = initialState, action) => {
         case GET_POPULAR:
             return{
                 ...state,
-                popular: action.payload,
+                movies: action.payload,
             }
         default:
             return{
