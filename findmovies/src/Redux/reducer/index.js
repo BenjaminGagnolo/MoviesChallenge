@@ -1,9 +1,9 @@
-import {GET_ALL_SUGGESTED, GET_MOVIE_DETAIL, GET_POPULAR} from "../actions/index"
+import {GET_ALL_SUGGESTED, GET_MOVIE_DETAIL, GET_POPULAR, GET_ALL_MOVIES, ORDER_BY_POP} from "../actions/index"
 
 const initialState = {
     movies: [],
     filtered: [],
-    popular: [],
+    AllMovies: [],
     order: [],
     movieDetail: {}
 }
@@ -21,9 +21,16 @@ const rootReducer = (state = initialState, action) => {
                 movieDetail: action.payload,
             }
         case GET_POPULAR:
+            
             return{
                 ...state,
                 movies: action.payload,
+            }
+        case GET_ALL_MOVIES:
+            
+            return{
+                ...state,
+                allMovies: action.payload,
             }
         default:
             return{

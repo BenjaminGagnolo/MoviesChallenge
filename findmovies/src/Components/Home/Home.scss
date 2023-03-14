@@ -1,0 +1,17 @@
+
+@mixin grid( $columnas , $espacio){
+    display                 : grid;
+    grid-template-columns   : repeat( $columnas , 1em );
+    gap                     : $espacio;
+
+    @media screen and (max-width:480px) {
+        grid-template-columns : 1fr ;
+        gap : 0em;
+    }
+}
+
+.TopPopular{
+    @include grid( 3 , 1em );
+}
+
+
