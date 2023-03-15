@@ -1,49 +1,45 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Card } from '@chakra-ui/react'
-import {getAllSuggested, orderByPop} from '../../Redux/actions/index'
+import { Card } from "@chakra-ui/react";
+import { getAllSuggested, orderByPop } from "../../Redux/actions/index";
 import Card1 from "../card/Card1";
+import { Link } from "react-router-dom";
 
-const Suggested = () =>{
- 
-    
-    let movies = useSelector(state => state.movies.results);
-    const dispatch = useDispatch()
-    
-    useEffect(()=>{    
-        dispatch(getAllSuggested())
-        dispatch(orderByPop())
-    }, [dispatch])
+const Suggested = () => {
+  let movies = useSelector((state) => state.movies.results);
+  const dispatch = useDispatch();
 
-    let suggestedMovies = movies
+  useEffect(() => {
+    dispatch(getAllSuggested());
+    dispatch(orderByPop());
+  }, [dispatch]);
 
-   //console.log(suggestedMovies)
-    return( 
-            <>
-            <p className="topTitle">Suggested</p>
+  let suggestedMovies = movies;
 
-
-            <Card >
-           { suggestedMovies?.map((movie)=>{
-               return(
-                   <div className="card">
-
-                   <Card1
-                   key={movie.id}  
-                   original_language={movie.original_language}  
-                   title={movie.title}  
-                   poster_path={movie.poster_path}  
-                   />
-
-                   </div>
-                   )
-                })}
-            
-            </Card>
-
-            </>
-    )
-}
+  //console.log(suggestedMovies)
+  return (
+    <>
+      <p className="topTitle">Suggested</p>
+      <Link to="/home">
+        <button>BACK</button>
+      </Link>
+      <Card>
+        {suggestedMovies?.map((movie) => {
+          return (
+            <div className="card">
+              <Card1
+                key={movie.id}
+                original_language={movie.original_language}
+                title={movie.title}
+                poster_path={movie.poster_path}
+              />
+            </div>
+          );
+        })}
+      </Card>
+    </>
+  );
+};
 
 export default Suggested;
